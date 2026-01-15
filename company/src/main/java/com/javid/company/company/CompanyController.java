@@ -7,10 +7,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/companies")
-@RequiredArgsConstructor
 public class CompanyController {
 
     private final CompanyService companyService;
+
+    public CompanyController(CompanyService companyService) {
+        this.companyService = companyService;
+    }
 
     @GetMapping
     public List<Company> getAllCompanies() {
@@ -26,6 +29,5 @@ public class CompanyController {
     public Company updateCompany(@PathVariable Long id, @RequestBody Company company) {
         return companyService.updateCompany(id, company);
     }
-
 
 }

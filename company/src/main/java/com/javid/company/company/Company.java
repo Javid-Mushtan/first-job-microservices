@@ -7,13 +7,15 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//@ToString(exclude = "jobs")
+//@EqualsAndHashCode(exclude = "jobs")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@RequiredArgsConstructor
 @Table(name = "company")
-@ToString(exclude = "jobs")
-@EqualsAndHashCode(exclude = "jobs")
 public class Company {
 
     @Id
@@ -23,6 +25,29 @@ public class Company {
     private String name;
     private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 //    @JsonIgnore
 //    @OneToMany(
 //            mappedBy = "company",
